@@ -6,6 +6,8 @@ function App(){
             className:"border" //meghívunk egy bootstrapes osztályt
         },
         "App",
+        React.createElement(BoxComponent),
+        React.createElement(BoxComponent),
         React.createElement(BoxComponent)
 
  
