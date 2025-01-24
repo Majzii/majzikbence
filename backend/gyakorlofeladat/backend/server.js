@@ -8,12 +8,24 @@ app .use(bodyParser.json());
 const db = mysql.createConnection(
     {
         user: "root",
-        host: "localhost",
+        host: "127.0.0.1",
         password: "",
         database: "kozutak",
     }
 );
 
 app.get("/", (req, res) => {
-    res.send("Fut a backend!")
+    res.send("Fut a backend!");
 })
+
+app.get("/regiok",(req, res) => {
+    const sql = "SELECT * FROM `regiok`";
+    db.query(sql, (err, result) => {
+        if(err) return res.json(err);
+        return res.json(result)
+    })
+})
+
+app.listen(3001, () => {
+    console.log("Server is runningg on port 3001");
+});
