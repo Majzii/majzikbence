@@ -26,6 +26,18 @@ app.get("/regiok",(req, res) => {
     })
 })
 
+app.post("/ujregio",(req, res) => {
+    const sql = "INSERT INTO `regiok` (`Rid`, `regionev`, `regio_tipusa`) VALUES (?, ?, ?)" ;
+    const values = ['10', 'Sopron', 'Megye'];
+    db.query(sql, values, (err, result) => {
+        if(err) {
+            console.error("Hibatortent:", err);
+            
+        }
+        
+    })
+})
+
 app.listen(3001, () => {
     console.log("Server is runningg on port 3001");
 });
